@@ -1,9 +1,17 @@
 {
   "extends": [
     "eslint:recommended",
-    "prettier" // prettier should be last
+    "plugin:import/errors",
+    "plugin:react/recommended",
+    "plugin:react-hooks/recommended",
+    "plugin:jsx-a11y/recommended", // jsx-a11y is for accessibility
+    "prettier" // prettier needs to be last
   ], 
-  "plugins": [], 
+  "rules": { // 0=ignore
+    "react/prop-types": 0, // proptypes are old bc typescript exists
+    "react/react-in-jsx-scope": 0 // as of React 17 
+  },
+  "plugins": ["react", "import", "jsx-a11y"], 
   "parserOptions": {
     "ecmaVersion": 2022,
     "sourceType": "module", 
@@ -15,5 +23,15 @@
     "es6": true,
     "browser": true, 
     "node": true
+  },
+  "settings": {
+    "react": {
+      "version": "detect" // read my lips: package.json
+    },
+    "import/resolver": {
+      "node": {
+        "extensions": [".js", ".jsx"] // also look for .jsx files
+      }
+    }
   }
 }
