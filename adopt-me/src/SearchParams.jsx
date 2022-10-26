@@ -31,8 +31,8 @@ const SearchParams = () => {
   // }
 
   return (
-    <div className="search-params">
-       <form
+     <div className="search-params">
+      <form
         onSubmit={(e) => {
           e.preventDefault();
           const formData = new FormData(e.target);
@@ -44,7 +44,7 @@ const SearchParams = () => {
           setRequestParams(obj);
         }}
       >
-         <label htmlFor="location">
+        <label htmlFor="location">
           Location
           <input id="location" name="location" placeholder="Location" />
         </label>
