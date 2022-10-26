@@ -2,6 +2,9 @@ import { Component } from 'react';
 import { Link } from 'react-router-dom';
 
 // EB is Class Component only - these fist 2 methods are the reason
+// EB catches errors so the app does not crash, gives you better msgs
+// create a prop that is "errorComponent" that is reusable to track
+// or wrap whole <App /> component in EB if you don't need granularity
 class ErrorBoundary extends Component {
   state = { hasError: false };
   static getDerivedStateFromError() {
@@ -24,6 +27,7 @@ class ErrorBoundary extends Component {
         </h2>
       )
     }
+    return this.props.children;
   }
 }
 
